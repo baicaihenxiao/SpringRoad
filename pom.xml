@@ -28,6 +28,15 @@
     </build>
 
   <dependencies>
+
+<!--      创建bean ApplicationContext引入 https://crunchify.com/spring-mvc-how-to-declare-a-bean-in-spring-application/-->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>5.2.2.RELEASE</version>
+      </dependency>
+
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
