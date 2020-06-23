@@ -6,7 +6,15 @@
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean id = "helloWorld" class = "club.cser.springroad.beans.HelloWorld">
-        <property name = "name" value = "codyyyy "/>
+        <property name = "name" value = "codyyyy"/>
+    </bean>
+
+    <bean id = "people" class = "club.cser.springroad.beans.People">
+        <property name = "age" value = "18"/>
+        <property name = "helloWorld" ref="helloWorld"/>
+        <property name = "helloWorld.name" value = "helloWorldddddddddd"/>
+<!--        这种级联方式赋值 会影响id=helloWorld 的name -->
+
     </bean>
 
 </beans>
