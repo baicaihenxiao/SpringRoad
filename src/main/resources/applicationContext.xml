@@ -32,17 +32,23 @@
         <property name = "code" value = "43444"/>
     </bean>
 
+<!--    bean继承-->
     <bean id = "addr3" class = "club.cser.springroad.beans.Address" parent="addr1">
         <property name = "street" value = "chaoyang"/>
     </bean>
 
+<!--    读取文件-->
     <bean id = "addr4" class = "club.cser.springroad.beans.Address">
         <property name = "city" value = "${city}"/>
         <property name = "street" value = "${street}"/>
         <property name = "code" value = "${code}"/>
     </bean>
-
-
+<!-- spel -->
+    <bean id = "addr5" class = "club.cser.springroad.beans.Address">
+        <property name = "city" value = "#{'spel city'}"/>
+        <property name = "street" value = "${street}"/>
+        <property name = "code" value = "#{T(java.lang.Math).PI * 10000}"/>
+    </bean>
 
 
 </beans>

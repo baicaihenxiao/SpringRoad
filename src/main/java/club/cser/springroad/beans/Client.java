@@ -1,6 +1,7 @@
 package club.cser.springroad.beans;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Client {
@@ -24,13 +25,14 @@ public class Client {
 
         Address addr1 = (Address) applicationContext.getBean("addr1");
         Address addr2 = (Address) applicationContext.getBean("addr2");
-        Address addr3 = (Address) applicationContext.getBean("addr3");
-        Address addr4 = (Address) applicationContext.getBean("addr4");
+        Address addr3 = (Address) applicationContext.getBean("addr3"); // bean继承
+        Address addr4 = (Address) applicationContext.getBean("addr4"); // 读取文件
+        Address addr5 = (Address) applicationContext.getBean("addr5"); // SpEl
 
         System.out.println(addr1);
         System.out.println(addr2);
         System.out.println(addr3);
         System.out.println(addr4);
-
+        System.out.println(addr5);
     }
 }
