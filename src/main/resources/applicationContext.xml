@@ -1,9 +1,13 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 
-<beans xmlns = "http://www.springframework.org/schema/beans"
-       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation = "http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:baicai.properties"/>
+
 
     <bean id = "helloWorld" class = "club.cser.springroad.beans.HelloWorld">
         <property name = "name" value = "codyyyy"/>
@@ -14,7 +18,31 @@
         <property name = "helloWorld" ref="helloWorld"/>
         <property name = "helloWorld.name" value = "helloWorldddddddddd"/>
 <!--        这种级联方式赋值 会影响id=helloWorld 的name -->
-
     </bean>
+
+    <bean id = "addr1" class = "club.cser.springroad.beans.Address">
+        <property name = "city" value = "beijing"/>
+        <property name = "street" value = "haidian"/>
+        <property name = "code" value = "11222"/>
+    </bean>
+
+    <bean id = "addr2" class = "club.cser.springroad.beans.Address">
+        <property name = "city" value = "tianjin"/>
+        <property name = "street" value = "shizhen"/>
+        <property name = "code" value = "43444"/>
+    </bean>
+
+    <bean id = "addr3" class = "club.cser.springroad.beans.Address" parent="addr1">
+        <property name = "street" value = "chaoyang"/>
+    </bean>
+
+    <bean id = "addr4" class = "club.cser.springroad.beans.Address">
+        <property name = "city" value = "${city}"/>
+        <property name = "street" value = "${street}"/>
+        <property name = "code" value = "${code}"/>
+    </bean>
+
+
+
 
 </beans>

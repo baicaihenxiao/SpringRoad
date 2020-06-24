@@ -22,5 +22,15 @@ public class Client {
         People people = (People) applicationContext.getBean("people");
         people.hi();
 
+        Address addr1 = (Address) applicationContext.getBean("addr1");
+        Address addr2 = (Address) applicationContext.getBean("addr2");
+        Address addr3 = (Address) applicationContext.getBean("addr3");
+        Address addr4 = (Address) applicationContext.getBean("addr4");
+
+        System.out.println(addr1);
+        System.out.println(addr2);
+        System.out.println(addr3);
+        System.out.println(addr4);
+
     }
 }
