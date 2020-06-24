@@ -50,5 +50,7 @@
         <property name = "code" value = "#{T(java.lang.Math).PI * 10000}"/>
     </bean>
 
-
+    <bean id="cycle1" class="club.cser.springroad.beans.BeanLifeCycle" init-method="initttt" destroy-method="destroyyyy">
+        <property name = "cycle" value = "#{'spel city'}"/>
+    </bean>
 </beans>
