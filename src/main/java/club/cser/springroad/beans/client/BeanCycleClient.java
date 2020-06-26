@@ -1,6 +1,6 @@
 package club.cser.springroad.beans.client;
 
-import club.cser.springroad.beans.BeanLifeCycle;
+import club.cser.springroad.beans.entity.BeanLifeCycle;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

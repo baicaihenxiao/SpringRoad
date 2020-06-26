@@ -1,4 +1,4 @@
-package club.cser.springroad.beans;
+package club.cser.springroad.beans.entity;
 
 public class HelloWorld {
 

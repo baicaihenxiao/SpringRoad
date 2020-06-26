@@ -1,10 +1,12 @@
-package club.cser.springroad.beans;
+package club.cser.springroad.beans.client;
 
+import club.cser.springroad.beans.entity.Address;
+import club.cser.springroad.beans.entity.HelloWorld;
+import club.cser.springroad.beans.entity.People;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Client {
+public class BeanXMLClient {
     public static void main(String[] args) {
         HelloWorld helloWorld = new HelloWorld();
         helloWorld.setName("cody");
