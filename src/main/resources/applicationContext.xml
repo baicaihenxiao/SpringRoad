@@ -53,4 +53,7 @@
     <bean id="cycle1" class="club.cser.springroad.beans.entity.BeanLifeCycle" init-method="initttt" destroy-method="destroyyyy">
         <property name = "cycle" value = "#{'spel city'}"/>
     </bean>
+
+    <bean class="club.cser.springroad.beans.handler.MyBeanPostProcessor"></bean>
+
 </beans>
