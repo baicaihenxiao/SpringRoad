@@ -8,7 +8,7 @@ public class BeanAnnotationClient {
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("bean-annotation.xml");
 
-        AddressController addressController = (AddressController)ctx.getBean("addressControllerImpl");
+        AddressController addressController = (AddressController)ctx.getBean("addressControllerrrrr");
         AddressController addressController1 = ctx.getBean(AddressController.class);
 
         System.out.println(addressController == addressController1);

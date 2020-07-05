@@ -3,7 +3,7 @@ package club.cser.springroad.beans.service;
 
 import org.springframework.stereotype.Service;
 
-@Service
+@Service(value = "addressService00000")
 public class AddressServiceImpl implements AddressService {
 
     public AddressServiceImpl() {
