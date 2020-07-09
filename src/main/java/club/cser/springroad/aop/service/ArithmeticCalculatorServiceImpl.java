@@ -1,5 +1,8 @@
 package club.cser.springroad.aop.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ArithmeticCalculatorServiceImpl implements ArithmeticCalculatorService {
 
     @Override
