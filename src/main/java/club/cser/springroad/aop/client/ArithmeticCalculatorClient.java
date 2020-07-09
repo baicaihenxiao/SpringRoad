@@ -10,5 +10,7 @@ public class ArithmeticCalculatorClient {
         ArithmeticCalculatorService proxy = new ArithmeticCalculatorLogProxy(arithmeticCalculatorService).getProxy();
         System.out.println("1 + 5 =" + proxy.add(1, 5) );
         System.out.println("1 - 5 =" + proxy.subtract(1, 5) );
+        System.out.println(arithmeticCalculatorService);
+        System.out.println(proxy);
     }
 }
