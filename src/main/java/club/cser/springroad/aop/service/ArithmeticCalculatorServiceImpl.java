@@ -14,4 +14,9 @@ public class ArithmeticCalculatorServiceImpl implements ArithmeticCalculatorServ
     public int subtract(int a, int b) {
         return a - b;
     }
+
+    @Override
+    public int invalidOp(int a, int b) {
+        throw new IllegalArgumentException("ArithmeticCalculatorServiceImpl.invalidOp");
+    }
 }
