@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="arithmeticCalculatorServiceImpl" class="club.cser.springroad.aop.service.ArithmeticCalculatorServiceImpl">
+    </bean>
+
+    <bean id="logXmlAspect" class="club.cser.springroad.aop.proxy.LogXmlAspect">
+    </bean>
+
+    <aop:config>
+        <aop:pointcut id="arithmeticPointcut" expression="execution(* club.cser.springroad.aop.service.*.*(..))"/>
+        <aop:aspect ref="logXmlAspect">
+            <aop:before method="beforeMethod222" pointcut-ref="arithmeticPointcut"></aop:before>
+            <aop:after method="afterMethod" pointcut-ref="arithmeticPointcut"></aop:after>
+            <aop:after-returning method="afterReturninggg" pointcut-ref="arithmeticPointcut" returning="resultttt"></aop:after-returning>
+        </aop:aspect>
+    </aop:config>
+
+
+    <!--    加一个这个看看创建了哪些bean -->
+    <bean class="club.cser.springroad.beans.handler.MyBeanPostProcessor"></bean>
+
+</beans>
