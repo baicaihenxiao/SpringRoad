@@ -3,20 +3,22 @@ package club.cser.springroad.aop.proxy;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Order(3)
 @Component
 @Aspect
 public class LogAspect {
 
     @Before("execution(* club.cser.springroad.aop.service.*.*(..))")
-    public void beforeMethod(JoinPoint jp){
+    public void beforeMethod222(JoinPoint jp){
         String methodName = jp.getSignature().getName();
         List<Object> argList = Arrays.asList(jp.getArgs());
-        System.out.println("@Before Method name:" + methodName + ", args=" + argList);
+        System.out.println("LogAspect1 @Before Method name:" + methodName + ", args=" + argList);
     }
 
 
@@ -25,14 +27,14 @@ public class LogAspect {
     public void afterMethod(JoinPoint jp){
         String methodName = jp.getSignature().getName();
         List<Object> argList = Arrays.asList(jp.getArgs());
-        System.out.println("@After Method name:" + methodName + ", args=" + argList);
+        System.out.println("LogAspect1 @After Method name:" + methodName + ", args=" + argList);
     }
 
     // @After之后调用，可以获得返回值，但是如果发生异常，该方法不会被调用。
     @AfterReturning(value = "execution(* club.cser.springroad.aop.service.*.*(..))", returning = "resultttt")
     public void afterReturninggg(JoinPoint jp, Object resultttt){
         String methodName = jp.getSignature().getName();
-        System.out.println("@AfterReturning Method name:" + methodName + ", result=" + resultttt);
+        System.out.println("LogAspect1 @AfterReturning Method name:" + methodName + ", result=" + resultttt);
     }
 
     // 可以通过细分Exception来对不同的异常执行advise。
