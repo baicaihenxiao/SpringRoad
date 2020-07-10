@@ -23,6 +23,6 @@ public class AspectJClient {
 
         System.out.println("CLIENT PRINT4: " +  arithmeticCalculatorService.add(2, 8) );
         System.out.println("CLIENT PRINT5: " +  arithmeticCalculatorService.subtract(22, 76) );
-        System.out.println("CLIENT PRINT6: " +  arithmeticCalculatorService.invalidOp(22, 76) );
+//        System.out.println("CLIENT PRINT6: " +  arithmeticCalculatorService.invalidOp(22, 76) );
     }
 }

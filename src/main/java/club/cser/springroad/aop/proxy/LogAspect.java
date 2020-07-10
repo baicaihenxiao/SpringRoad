@@ -14,7 +14,10 @@ import java.util.List;
 @Aspect
 public class LogAspect {
 
-    @Before("execution(* club.cser.springroad.aop.service.*.*(..))")
+    @Pointcut("execution(* club.cser.springroad.aop.service.*.*(..))")
+    public void aopServicePointcut(){}
+
+    @Before("aopServicePointcut()")
     public void beforeMethod222(JoinPoint jp){
         String methodName = jp.getSignature().getName();
         List<Object> argList = Arrays.asList(jp.getArgs());
@@ -23,7 +26,7 @@ public class LogAspect {
 
 
     // @After无法获得返回值，无论被代理的方法执行中是否发生异常，都会在执行后调用
-    @After("execution(* club.cser.springroad.aop.service.*.*(..))")
+    @After("aopServicePointcut()")
     public void afterMethod(JoinPoint jp){
         String methodName = jp.getSignature().getName();
         List<Object> argList = Arrays.asList(jp.getArgs());
@@ -31,7 +34,7 @@ public class LogAspect {
     }
 
     // @After之后调用，可以获得返回值，但是如果发生异常，该方法不会被调用。
-    @AfterReturning(value = "execution(* club.cser.springroad.aop.service.*.*(..))", returning = "resultttt")
+    @AfterReturning(value = "aopServicePointcut()", returning = "resultttt")
     public void afterReturninggg(JoinPoint jp, Object resultttt){
         String methodName = jp.getSignature().getName();
         System.out.println("LogAspect1 @AfterReturning Method name:" + methodName + ", result=" + resultttt);
@@ -39,14 +42,14 @@ public class LogAspect {
 
     // 可以通过细分Exception来对不同的异常执行advise。
     // 如果@Around修改了被切方法的异常类型，这里接收到的是修改后的异常，如果@Around处理了之后没有在抛出异常，这个方法不会执行。
-    @AfterThrowing(value = "execution(* club.cser.springroad.aop.service.*.*(..))", throwing = "ex")
+    @AfterThrowing(value = "aopServicePointcut()", throwing = "ex")
     public void afterThrowinggg(JoinPoint jp, Exception ex){
         String methodName = jp.getSignature().getName();
 //        System.out.println("@AfterThrowing Method name:" + methodName + ", ex=" + Arrays.toString(ex.getStackTrace()));
         System.out.println("@AfterThrowing Method name:" + methodName + ", ex=" + ex);
     }
 
-    @Around(value = "execution(* club.cser.springroad.aop.service.*.*(..))")
+    @Around(value = "aopServicePointcut()")
     public Object afterThrowinggg(ProceedingJoinPoint pjp){
         String methodName = pjp.getSignature().getName();
         Object result = null;
