@@ -1,33 +1,29 @@
 package club.cser.springroad.jdbc.dao;
 
-
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.runner.RunWith;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import javax.annotation.Resource;
 
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = HelloDaoConfig.class)
 public class HelloDaoTest {
 
+    @Resource
     JdbcTemplate jdbcTemplate;
 
+    @Resource
     HelloDao helloDao;
-
-    @Before
-    public void init() {} {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("jdbc-bean.xml");
-        this.jdbcTemplate = (JdbcTemplate)ctx.getBean("jdbcTemplate");
-        this.helloDao = ctx.getBean(HelloDao.class);
-        Assert.assertNotNull(this.jdbcTemplate);
-        Assert.assertNotNull(this.helloDao);
-    }
-
 
     @Test
     public void updateNameByIdTest() {
-        String name  = "sprin2222g testtt111";
+        Assert.assertNotNull(helloDao);
+        Assert.assertNotNull(jdbcTemplate);
+
+        String name  = "spring kkkkkkkk";
         Integer id = 1;
 
         Assert.assertTrue(helloDao.updateNameById(name, id));

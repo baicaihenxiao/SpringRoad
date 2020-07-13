@@ -36,6 +36,7 @@
           <version>5.2.2.RELEASE</version>
       </dependency>
 
+<!--  aop    -->
 <!--      https://www.baeldung.com/aspectj-->
       <dependency>
           <groupId>org.aspectj</groupId>
@@ -48,6 +49,7 @@
           <version>1.8.9</version>
       </dependency>
 
+<!--  数据库链接 -->
       <!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
       <dependency>
           <groupId>c3p0</groupId>
@@ -69,14 +71,24 @@
           <version>8.0.20</version>
       </dependency>
 
+<!-- 测试 -->
 
-
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+      <!--  @ContextConfiguration @RunWith(SpringJUnit4ClassRunner.class) 可以在test里配置context环境获取bean    -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>5.2.2.RELEASE</version>
+          <scope>test</scope>
+      </dependency>
 
       <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13</version>
       <!-- <scope>test</scope> -->
+
+<!-- 日志 -->
     </dependency>
       <dependency>
           <groupId>org.apache.logging.log4j</groupId>
@@ -88,6 +100,9 @@
           <artifactId>log4j-core</artifactId>
           <version>2.13.2</version>
       </dependency>
+
+
+
       <dependency>
           <groupId>com.google.guava</groupId>
           <artifactId>guava</artifactId>

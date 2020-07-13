@@ -6,7 +6,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="club.cser.springroad.jdbc.dao"></context:component-scan>
+    <context:component-scan base-package="club.cser.springroad.jdbc.dao">
+<!--        club.cser.springroad.jdbc.dao.JdbcTemplateBean 会创建这个xml里已经配置的bean，报org.springframework.beans.factory.NoUniqueBeanDefinitionException -->
+        <context:exclude-filter type="annotation" expression="org.springframework.context.annotation.Configuration"/>
+    </context:component-scan>
 
     <context:property-placeholder location="classpath:db.properties"/>
 
