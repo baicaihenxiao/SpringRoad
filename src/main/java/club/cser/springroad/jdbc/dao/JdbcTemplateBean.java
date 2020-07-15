@@ -7,11 +7,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 
 @Configuration // 创建bean
+@EnableTransactionManagement
 @PropertySource("classpath:db.properties") // 读取properties文件
 public class JdbcTemplateBean {
 
@@ -41,5 +45,12 @@ public class JdbcTemplateBean {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(getDataSource());
         return jdbcTemplate;
+    }
+
+    @Bean(name = "transactionManager")
+    public TransactionManager getTransactionManager() {
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+        dataSourceTransactionManager.setDataSource(getDataSource());
+        return dataSourceTransactionManager;
     }
 }
