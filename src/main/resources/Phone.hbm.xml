@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--一定要放在resources文件夹里，放在java里识别不出来-->
+
+<hibernate-mapping>
+    <class name = "club.cser.springroad.hibernate.entity.Phone" table = "phone">
+
+
+        <id name = "id" type = "java.lang.Integer" column = "id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "manufacture" column = "manufacture" type = "java.lang.String"/>
+        <property name = "city" column = "city" type = "java.lang.String"/>
+        <property name = "saleDate" column = "sale_date" type = "java.util.Date"/>
+
+    </class>
+</hibernate-mapping>
