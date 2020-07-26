@@ -27,13 +27,17 @@
         <property name="mappingLocations" value="classpath:*.hbm.xml"></property>
     </bean>
 
+<!--    sessionFactory一定要绑定事务，否则调用sessionFactory.getCurrentSession()会报错，所以select的句子要设为readonly  -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
+<!--            默认get方法都是只读型事务 -->
             <tx:method name="get*" read-only="true"/>
+
+<!--            未指定的方法传播方式是 REQUIRED -->
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>

@@ -1,5 +1,6 @@
 package club.cser.springroad.hibernate.dao;
 
+import club.cser.springroad.hibernate.entity.Phone;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -31,4 +32,33 @@ public class PhoneDao {
         Query query = getSession().createQuery(hql).setParameter(1, id);
         return (Date)query.uniqueResult();
     }
+
+    public boolean updateManufactureById(String manufacture, Integer id) {
+        String hql = "UPDATE Phone p SET p.manufacture = ?1 where p.id = ?2";
+
+        return getSession().createQuery(hql)
+                .setParameter(1, manufacture)
+                .setParameter(2, id)
+                .executeUpdate() == 1;
+    }
+
+    public boolean addPhone(String manufacture, String city) {
+        String hql = "INSERT INTO Phone (manufacture, city) VALUES (?1, ?2)";
+
+        return getSession().createSQLQuery(hql)
+                .setParameter(1, manufacture)
+                .setParameter(2, city)
+                .executeUpdate() == 1;
+    }
+
+    public void addPhone1(String manufacture, String city) {
+        Phone phone = new Phone();
+        phone.setCity(city);
+        phone.setManufacture(manufacture);
+        phone.setSaleDate(new Date()); // 用 new Date在数据库里是CENTRAL DAYLIGHT TIMECDT (UTC-5)时间
+        System.out.println(new Date()); // 输出时间是对的
+
+        getSession().save(phone);
+    }
+
 }
