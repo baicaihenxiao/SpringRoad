@@ -8,16 +8,20 @@
 <!--  属性查询      https://docs.jboss.org/hibernate/core/3.3/reference/en-US/html/session-configuration.html#configuration-optional-->
 
 
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-<!--        Write all SQL statements to console.-->
+<!--        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>-->
+<!--        https://stackoverflow.com/questions/1459265/hibernate-create-mysql-innodb-tables-instead-of-myisam -->
+<!--        用这个<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>会提示用下面这个，update就可以自动生成数据库了-->
+        <property name="hibernate.dialect.storage_engine">innodb</property>
+
+        <!--        Write all SQL statements to console.-->
         <property name="hibernate.show_sql">true</property>
 <!--        Pretty print the SQL in the log and console-->
         <property name="hibernate.format_sql">true</property>
+
 <!--        Automatically validates or exports schema DDL to the database when the SessionFactory is created.
 With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly.-->
 <!--        https://stackoverflow.com/questions/438146/what-are-the-possible-values-of-the-hibernate-hbm2ddl-auto-configuration-and-wha -->
-<!--        这个不管是create还是update都不能自动创建表，不知道为啥-->
-<!--        <property name="hibernate.hbm2ddl.auto">create</property>-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
 <!--     这里配置mapping，sql里数据表Phone不会标红  -->
 <!--        <mapping resource="Phone.hbm.xml"></mapping>-->
