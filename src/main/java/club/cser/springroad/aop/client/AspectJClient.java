@@ -2,11 +2,16 @@ package club.cser.springroad.aop.client;
 
 import club.cser.springroad.aop.service.ArithmeticCalculatorService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AspectJClient {
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("aspectj.xml");
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext("aspectj.xml");
+
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+        ctx.scan("club.cser.springroad.aop");
+        ctx.refresh();
 
         ArithmeticCalculatorService arithmeticCalculatorService = (ArithmeticCalculatorService)ctx.getBean("arithmeticCalculatorServiceImpl");
 

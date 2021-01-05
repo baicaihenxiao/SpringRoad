@@ -1,8 +1,10 @@
 package club.cser.springroad.aop.service;
 
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Service;
 
 @Service
+@EnableAspectJAutoProxy
 public class ArithmeticCalculatorServiceImpl implements ArithmeticCalculatorService {
 
     @Override
